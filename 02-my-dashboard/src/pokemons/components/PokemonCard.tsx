@@ -15,7 +15,7 @@ export default function PokemonCard({ pokemon }: Props) {
     const { name, img, id } = pokemon
 
     const isFavorite = useAppSelector(state => {
-        return !!state.pokemons[id]
+        return !!state.pokemons.favorites[id]
     })
 
     const dispatch = useAppDispatch()

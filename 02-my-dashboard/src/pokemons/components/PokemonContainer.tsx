@@ -7,7 +7,7 @@ import { Pokemon } from '../interfaces/pokemon'
 
 export const PokemonContainer = () => {
 
-  const favorites = useAppSelector(state => state.pokemons)
+  const favorites = useAppSelector(state => state.pokemons.favorites)
 
   const [isLoading, setIsLoading] = useState<boolean>(true)
 

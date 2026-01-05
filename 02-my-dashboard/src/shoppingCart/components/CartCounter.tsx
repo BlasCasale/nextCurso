@@ -2,7 +2,7 @@
 import { useEffect } from 'react'
 import { Button } from '@/components/Button'
 import { useAppDispatch, useAppSelector } from '@/store'
-import { addOne, initCounterState, resetCounter, substractOne } from '@/store/counter/counterSlice'
+import { addOne, initCounterState, substractOne } from '@/store/counter/counterSlice'
 import React from 'react'
 
 interface Props {

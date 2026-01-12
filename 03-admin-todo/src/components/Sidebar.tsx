@@ -9,7 +9,7 @@ const menuItems = [
   {
     href: '/dashboard',
     icon: <IoCalendarOutline />,
-    label: 'Dashboar'
+    label: 'Dashboard'
   },
   {
     href: '/dashboard/rest-todos',

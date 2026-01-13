@@ -50,3 +50,12 @@ export async function GET(request: Request) {
     todos
   }));
 }
+
+export async function DELETE(request: Request) {
+  try {
+    const deleted = await prisma.todo.deleteMany({ where: { complete: true } })
+    return NextResponse.json({ message: 'Se eliminaron los completados', deleted })
+  } catch (error) {
+    return NextResponse.json({ message: error })
+  }
+}

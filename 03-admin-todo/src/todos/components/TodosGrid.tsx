@@ -12,7 +12,7 @@ export const TodosGrid = ({ todos }: Props) => {
     <div className='grid grid-cols-1 sm:grid-cols-3 gap-2'>
       {
         todos.length > 0
-          ? todos.map((todo) => (<TodoCard key={todo.id} {...todo} />))
+          ? todos.map((todo) => (<TodoCard key={todo.id} todo={todo} />))
           : <h2>No hay to do para este usuario</h2>
       }
     </div>

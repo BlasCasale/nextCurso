@@ -1,7 +1,7 @@
 import Image from 'next/image'
 import Link from 'next/link'
 import React from 'react'
-import { CiBookmarkCheck, CiLogout } from 'react-icons/ci'
+import { CiBasketball, CiBookmarkCheck, CiCoffeeBean, CiLogout } from 'react-icons/ci'
 import { SidebarMenuIcon } from './SidebarMenuIcon'
 import { IoCalendarOutline, IoListOutline } from 'react-icons/io5'
 
@@ -20,6 +20,16 @@ const menuItems = [
     href: '/dashboard/server-actions',
     icon: <IoListOutline />,
     label: 'Server Actions'
+  },
+  {
+    href: '/dashboard/cookies',
+    icon: <CiCoffeeBean />,
+    label: 'Cookies'
+  },
+  {
+    href: '/dashboard/products',
+    icon: <CiBasketball />,
+    label: 'Products'
   }
 ]
 

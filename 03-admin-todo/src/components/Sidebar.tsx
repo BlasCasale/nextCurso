@@ -1,9 +1,12 @@
 import Image from 'next/image'
 import Link from 'next/link'
 import React from 'react'
-import { CiBasketball, CiBookmarkCheck, CiCoffeeBean, CiLogout } from 'react-icons/ci'
+import { CiBasketball, CiBookmarkCheck, CiCamera, CiCoffeeBean, CiHome, CiLogout } from 'react-icons/ci'
 import { SidebarMenuIcon } from './SidebarMenuIcon'
 import { IoCalendarOutline, IoListOutline } from 'react-icons/io5'
+import { getServerSession } from 'next-auth'
+import { authOptions } from '@/app/api/auth/[...nextauth]/route'
+import { Avatar } from './Avatar'
 
 const menuItems = [
   {
@@ -30,25 +33,34 @@ const menuItems = [
     href: '/dashboard/products',
     icon: <CiBasketball />,
     label: 'Products'
+  },
+  {
+    href: 'dashboard/profile',
+    icon: <CiCamera />,
+    label: 'Profile'
   }
 ]
 
-export const Sidebar = () => {
+export const Sidebar = async () => {
+
+  const session = await getServerSession(authOptions)
+
+  const userInfo = {
+    name: session?.user?.name as string,
+    mail: session?.user?.email as string,
+    img: session?.user?.image as string
+  }
+
   return (
     <aside className="ml-[-100%] fixed z-10 top-0 pb-3 px-6 w-full flex flex-col justify-between h-screen border-r bg-white transition duration-300 md:w-4/12 lg:ml-0 lg:w-[25%] xl:w-[20%] 2xl:w-[15%]">
       <div>
-        <div className="-mx-6 px-6 py-4">
+        <div className="m-2 p-2">
           <Link href="/dashboard" title="home">
-            <Image src="https://tailus.io/sources/blocks/stats-cards/preview/images/logo.svg" className="w-32" alt="tailus logo" width={24} height={24} />
+            <CiHome size={30} />
           </Link>
         </div>
 
-        <div className="mt-8 text-center">
-          <Image src="https://tailus.io/sources/blocks/stats-cards/preview/images/second_user.webp" alt="" className="w-10 h-10 m-auto rounded-full object-cover lg:w-28 lg:h-28" width={24} height={24} />
-          <h5 className="hidden mt-4 text-xl font-semibold text-gray-600 lg:block">Cynthia J. Watts</h5>
-          <span className="hidden text-gray-400 lg:block">Admin</span>
-        </div>
-
+        <Avatar {...userInfo} />
         <ul className="space-y-2 tracking-wide mt-8">
           {
             menuItems.map((item) => (<SidebarMenuIcon key={item.href} {...item} />))

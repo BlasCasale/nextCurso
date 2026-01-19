@@ -1,12 +1,12 @@
-import Image from 'next/image'
-import Link from 'next/link'
 import React from 'react'
+import Link from 'next/link'
 import { CiBasketball, CiBookmarkCheck, CiCamera, CiCoffeeBean, CiHome, CiLogout } from 'react-icons/ci'
 import { SidebarMenuIcon } from './SidebarMenuIcon'
 import { IoCalendarOutline, IoListOutline } from 'react-icons/io5'
 import { getServerSession } from 'next-auth'
 import { authOptions } from '@/app/api/auth/[...nextauth]/route'
-import { Avatar } from './Avatar'
+import { Avatar } from '../avatar/Avatar'
+import { Session } from '../session/Session'
 
 const menuItems = [
   {
@@ -35,7 +35,7 @@ const menuItems = [
     label: 'Products'
   },
   {
-    href: 'dashboard/profile',
+    href: '/dashboard/profile',
     icon: <CiCamera />,
     label: 'Profile'
   }
@@ -68,12 +68,8 @@ export const Sidebar = async () => {
         </ul>
       </div>
 
-      <div className="px-6 -mx-6 pt-4 flex justify-between items-center border-t">
-        <button className="px-4 py-3 flex items-center space-x-4 rounded-md text-gray-600 group">
-          <CiLogout />
-          <span className="group-hover:text-gray-700">Logout</span>
-        </button>
-      </div>
+      <Session />
+
     </aside>
   )
 }

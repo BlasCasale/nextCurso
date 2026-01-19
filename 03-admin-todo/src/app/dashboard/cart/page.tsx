@@ -1,4 +1,4 @@
-import { WidgetItem } from "@/components/WidgetItem";
+import { WidgetItem } from "@/components/widget/WidgetItem";
 import { Product, products } from "@/products/data/products";
 import { ItemCard } from "@/shopping-cart/components/ItemCard";
 import { Metadata } from "next";

@@ -1,5 +1,5 @@
 'use client'
-import { Star } from "@/components/Star";
+import { Star } from "@/components/products/Star";
 import { addProductToCart, deleteProductFromCart } from "@/shopping-cart/actions/actions";
 import Image from "next/image"
 import { useRouter } from "next/navigation";

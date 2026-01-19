@@ -1,4 +1,4 @@
-import { WidgetItem } from '@/components/WidgetItem';
+import { WidgetItem } from '@/components/widget/WidgetItem';
 import { getServerSession } from 'next-auth';
 import { authOptions } from '../api/auth/[...nextauth]/route';
 import { redirect } from 'next/navigation';

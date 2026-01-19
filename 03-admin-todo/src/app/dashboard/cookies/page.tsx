@@ -1,5 +1,5 @@
 import { Metadata } from "next"
-import { TabBar } from '@/components/TabBar'
+import { TabBar } from '@/components/tabbar/TabBar'
 import { cookies } from "next/headers"
 
 export const metadata: Metadata = {

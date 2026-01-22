@@ -12,7 +12,9 @@ export default function ProfilePage() {
       <div className="flex flex-col gap-2">
         <span>{session?.user?.email ?? 'No email'}</span>
         <span>{session?.user?.name ?? 'No name'}</span>
-        <Image alt="No image" src={session?.user?.image ?? ''} height={50} width={50} />
+        <span>{session?.user?.roles?.join(', ') ?? 'Sin roles'}</span>
+        <span>{session?.user?.id}</span>
+        {session?.user?.image && <Image alt="No image" src={session?.user?.image} height={50} width={50} />}
       </div>
     </div>
   );

@@ -3,6 +3,7 @@
 import { Todo } from "@prisma/client"
 import prisma from "@/lib/prisma"
 import { revalidatePath } from "next/cache"
+import { getUserSessionServer } from "@/auth/actions/auth-actions"
 
 export const toggleTodo = async (id: string, complete: boolean): Promise<Todo> => {
   const todo = await prisma.todo.findFirst({ where: { id } })
@@ -32,8 +33,11 @@ interface SuccessfullResponse {
 export const createTodo = async (description: string): Promise<Todo | ErrorResponse> => {
 
   try {
+    const user = await getUserSessionServer()
+    if (!user) throw new Error('No se pudo obtener el usuario')
+
     const todo = await prisma.todo.create({
-      data: { description }
+      data: { description, userId: user.id }
     })
 
     revalidatePath('/dashboard/server-actions')

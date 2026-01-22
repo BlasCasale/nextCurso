@@ -48,7 +48,8 @@ export const Sidebar = async () => {
   const userInfo = {
     name: session?.user?.name as string,
     mail: session?.user?.email as string,
-    img: session?.user?.image as string
+    img: session?.user?.image as string,
+    roles: session?.user?.roles as string[]
   }
 
   return (

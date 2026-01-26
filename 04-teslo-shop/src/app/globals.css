@@ -1,4 +1,4 @@
-@import "tailwindcss"
+@import "tailwindcss";
 
 :root {
   --primary: #274494;
@@ -14,6 +14,14 @@
     --background-end-rgb: 0, 0, 0;
   }
 } */ 
+
+/* @layer base {
+  a {
+    color: inherit;
+    text-decoration: inherit;
+    cursor: pointer;
+  }
+} */
 
 body {
   color: rgb(var(--foreground-rgb));
